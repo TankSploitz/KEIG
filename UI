@@ -1,7 +1,5 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
+-- https://create.roblox.com/store/asset/1343400903 Plugin used to convert the gui to script
+-- For everyone to use
 
 local ScreenGui = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
