@@ -532,7 +532,7 @@ end
 
 local userInputService = game:GetService("UserInputService")
 userInputService.InputBegan:Connect(function(input, processed)
-	if not processed and input.KeyCode == Enum.KeyCode.RightShift then
+	if not processed and input.KeyCode == Enum.KeyCode.RightControl then
 		toggleFrame()
 	end
 end)
