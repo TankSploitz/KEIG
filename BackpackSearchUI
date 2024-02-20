@@ -18,6 +18,8 @@ ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Main.Name = "Main"
+Main.Active = true
+Main.Draggable = true
 Main.Parent = ScreenGui
 Main.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
 Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
