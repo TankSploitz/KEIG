@@ -1,11 +1,14 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
 local ScreenGui = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local Scrolling = Instance.new("ScrollingFrame")
 local Template = Instance.new("TextLabel")
 local UICorner = Instance.new("UICorner")
 local UIListLayout = Instance.new("UIListLayout")
-local Template_2 = Instance.new("TextLabel")
-local UICorner_2 = Instance.new("UICorner")
 local SearchAllBackpacks = Instance.new("TextButton")
 local SearchTool = Instance.new("TextBox")
 
@@ -19,25 +22,27 @@ Main.Parent = ScreenGui
 Main.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
 Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Main.BorderSizePixel = 0
-Main.Position = UDim2.new(0.373292863, 0, 0.113456465, 0)
-Main.Size = UDim2.new(0, 334, 0, 442)
+Main.Position = UDim2.new(0.337894619, 0, 0.113456465, 0)
+Main.Size = UDim2.new(0, 358, 0, 442)
 
 Scrolling.Name = "Scrolling"
 Scrolling.Parent = Main
 Scrolling.Active = true
-Scrolling.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+Scrolling.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+Scrolling.BackgroundTransparency = 0.500
 Scrolling.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Scrolling.BorderSizePixel = 0
-Scrolling.Position = UDim2.new(0.0239520967, 0, 0.0180995129, 0)
+Scrolling.Position = UDim2.new(0.0546782948, 0, 0.0180994794, 0)
 Scrolling.Size = UDim2.new(0, 317, 0, 426)
 Scrolling.CanvasSize = UDim2.new(0, 0, 10, 0)
 
 Template.Name = "Template"
 Template.Parent = Scrolling
-Template.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+Template.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
 Template.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Template.BorderSizePixel = 0
 Template.Size = UDim2.new(0, 300, 0, 35)
+Template.Visible = false
 Template.Font = Enum.Font.SourceSans
 Template.TextColor3 = Color3.fromRGB(255, 255, 255)
 Template.TextSize = 14.000
@@ -48,19 +53,6 @@ UICorner.Parent = Template
 UIListLayout.Parent = Scrolling
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.Padding = UDim.new(0.00100000005, 0)
-
-Template_2.Name = "Template"
-Template_2.Parent = Scrolling
-Template_2.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
-Template_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Template_2.BorderSizePixel = 0
-Template_2.Size = UDim2.new(0, 300, 0, 35)
-Template_2.Font = Enum.Font.SourceSans
-Template_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-Template_2.TextSize = 14.000
-Template_2.TextWrapped = true
-
-UICorner_2.Parent = Template_2
 
 SearchAllBackpacks.Name = "SearchAllBackpacks"
 SearchAllBackpacks.Parent = Main
