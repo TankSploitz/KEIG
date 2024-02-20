@@ -233,7 +233,24 @@ SAVE.MouseButton1Click:Connect(function()
 	SAVE.Text = "Map Saved"
 	SAVE:Destroy()
 end)
-
+local BPACK = Instance.new("TextButton")
+BPACK.Name = "BPACK"
+BPACK.Parent = Loaders
+BPACK.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+BPACK.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BPACK.BorderSizePixel = 0
+BPACK.Position = UDim2.new(0.0429447852, 0, 0, 0)
+BPACK.Size = UDim2.new(0, 133, 0, 24)
+BPACK.Font = Enum.Font.SourceSansBold
+BPACK.Text = "Backpack Viewer"
+BPACK.TextColor3 = Color3.fromRGB(255, 255, 255)
+BPACK.TextScaled = true
+BPACK.TextSize = 14.000
+BPACK.TextWrapped = true
+BPACK.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/TankSploitz/KEIG/main/BackpackSearchUI'))()
+	BPACK:Destroy()
+end)
 Loaders.Name = "Loaders"
 Loaders.Parent = Main
 Loaders.Active = true
@@ -318,7 +335,7 @@ refresh.TextWrapped = true
 
 function RefreshButtons()
 	for _, button in pairs(Loaders:GetChildren()) do
-		if button:IsA("TextButton") and button.Text ~= "Infinite Yield" and button.Text ~= "Save Map" then
+		if button:IsA("TextButton") and button.Text ~= "Infinite Yield" and button.Text ~= "Backpack Viewer" and button.Text ~= "Save Map" then
 			button:Destroy()
 		end
 	end
