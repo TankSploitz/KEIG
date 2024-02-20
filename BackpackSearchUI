@@ -1,20 +1,17 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
 local ScreenGui = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local Scrolling = Instance.new("ScrollingFrame")
 local Template = Instance.new("TextLabel")
 local UICorner = Instance.new("UICorner")
 local UIListLayout = Instance.new("UIListLayout")
+local Template_2 = Instance.new("TextLabel")
+local UICorner_2 = Instance.new("UICorner")
 local SearchAllBackpacks = Instance.new("TextButton")
 local SearchTool = Instance.new("TextBox")
 
 --Properties:
 
-ScreenGui.Parent = game.CoreGui
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Main.Name = "Main"
@@ -24,8 +21,6 @@ Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Main.BorderSizePixel = 0
 Main.Position = UDim2.new(0.373292863, 0, 0.113456465, 0)
 Main.Size = UDim2.new(0, 334, 0, 442)
-Main.Active = true
-Main.Draggable = true
 
 Scrolling.Name = "Scrolling"
 Scrolling.Parent = Main
@@ -50,10 +45,22 @@ Template.TextWrapped = true
 
 UICorner.Parent = Template
 
-
 UIListLayout.Parent = Scrolling
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout.Padding = UDim.new(0.00999999978, 0)
+UIListLayout.Padding = UDim.new(0.00100000005, 0)
+
+Template_2.Name = "Template"
+Template_2.Parent = Scrolling
+Template_2.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+Template_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Template_2.BorderSizePixel = 0
+Template_2.Size = UDim2.new(0, 300, 0, 35)
+Template_2.Font = Enum.Font.SourceSans
+Template_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Template_2.TextSize = 14.000
+Template_2.TextWrapped = true
+
+UICorner_2.Parent = Template_2
 
 SearchAllBackpacks.Name = "SearchAllBackpacks"
 SearchAllBackpacks.Parent = Main
