@@ -364,6 +364,11 @@ local function newbuttons()
 			loadstring(readfile(v))()
 
 		end)
+		newscript.MouseButton2Click:Connect(function()
+
+			textbox.Text = readfile(v)
+
+		end)
 	end
 end
 
