@@ -366,7 +366,7 @@ local function newbuttons()
 		end)
 		newscript.MouseButton2Click:Connect(function()
 
-			textbox.Text = readfile(v)
+			Source.Text = readfile(v)
 
 		end)
 	end
