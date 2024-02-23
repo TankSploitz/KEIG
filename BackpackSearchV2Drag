@@ -1,0 +1,203 @@
+
+local ScreenGui = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local Scrolling = Instance.new("ScrollingFrame")
+local Template = Instance.new("TextLabel")
+local UICorner = Instance.new("UICorner")
+local UIListLayout = Instance.new("UIListLayout")
+local SearchAllBackpacks = Instance.new("TextButton")
+local SearchTool = Instance.new("TextBox")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Name = "Main"
+Main.Parent = ScreenGui
+Main.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.337894619, 0, 0.113456465, 0)
+Main.Size = UDim2.new(0, 358, 0, 442)
+Main.Draggable = true
+Main.Active = true
+Main.Selectable = true
+
+Scrolling.Name = "Scrolling"
+Scrolling.Parent = Main
+Scrolling.Active = true
+Scrolling.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+Scrolling.BackgroundTransparency = 0.500
+Scrolling.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Scrolling.BorderSizePixel = 0
+Scrolling.Position = UDim2.new(0.0211587399, 0, 0.0180994794, 0)
+Scrolling.Size = UDim2.new(0, 317, 0, 426)
+Scrolling.CanvasSize = UDim2.new(0, 0, 10, 0)
+
+Template.Name = "Template"
+Template.Parent = Scrolling
+Template.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+Template.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Template.BorderSizePixel = 0
+Template.Size = UDim2.new(0, 300, 0, 35)
+Template.Visible = false
+Template.Font = Enum.Font.SourceSans
+Template.TextColor3 = Color3.fromRGB(255, 255, 255)
+Template.TextSize = 14.000
+Template.TextWrapped = true
+
+UICorner.Parent = Template
+
+UIListLayout.Parent = Scrolling
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0.00100000005, 0)
+
+SearchAllBackpacks.Name = "SearchAllBackpacks"
+SearchAllBackpacks.Parent = Main
+SearchAllBackpacks.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+SearchAllBackpacks.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SearchAllBackpacks.BorderSizePixel = 0
+SearchAllBackpacks.Position = UDim2.new(0.19760479, 0, 1.01583707, 0)
+SearchAllBackpacks.Size = UDim2.new(0, 200, 0, 50)
+SearchAllBackpacks.Font = Enum.Font.SourceSans
+SearchAllBackpacks.Text = "Get All Backpacks"
+SearchAllBackpacks.TextColor3 = Color3.fromRGB(255, 255, 255)
+SearchAllBackpacks.TextSize = 14.000
+
+SearchTool.Name = "SearchTool"
+SearchTool.Parent = Main
+SearchTool.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+SearchTool.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SearchTool.BorderSizePixel = 0
+SearchTool.Position = UDim2.new(0, 0, -0.0791855231, 0)
+SearchTool.Size = UDim2.new(0, 334, 0, 28)
+SearchTool.Font = Enum.Font.SourceSans
+SearchTool.PlaceholderText = "Search"
+SearchTool.Text = ""
+SearchTool.TextColor3 = Color3.fromRGB(0, 0, 0)
+SearchTool.TextSize = 14.000
+
+
+local function toggleFrame()
+	Main.Visible = not Main.Visible
+end
+
+
+local userInputService = game:GetService("UserInputService")
+userInputService.InputBegan:Connect(function(input, processed)
+	if not processed and input.KeyCode == Enum.KeyCode.RightShift then
+		toggleFrame()
+	end
+end)
+
+-- Function to print items in a player's backpack and create GUI entries
+local function printBackpack(player)
+	print("Items in " .. player.Name .. "'s backpack:")
+
+	local backpack = player.Backpack
+	if backpack then
+		for _, item in pairs(backpack:GetChildren()) do
+			if item:IsA("Tool") then
+				print(player.Name .. " - " .. item.Name)
+
+				-- Create a new entry in the GUI for each tool found
+				local clone = Template:Clone()
+				clone.Text = player.Name .. " - " .. item.Name
+				clone.Visible = true
+				clone.Parent = Scrolling
+				clone.Parent = Scrolling
+			end
+		end
+	else
+		print(player.Name .. " does not have a backpack.")
+	end
+
+	print("\n")
+end
+
+
+-- Function to iterate through all players and print their backpack items
+-- Function to iterate through all players and print their backpack items
+local function printAllBackpacks()
+	-- Clear existing entries in the GUI, excluding UIListLayout
+	for _, child in pairs(Scrolling:GetChildren()) do
+		if child ~= UIListLayout then
+			child:Destroy()
+		end
+	end
+
+	for _, player in pairs(game.Players:GetPlayers()) do
+		printBackpack(player)
+	end
+end
+
+
+-- Event handler for the "Get All Backpacks" button
+SearchAllBackpacks.MouseButton1Click:Connect(function()
+	printAllBackpacks()
+end)
+
+-- Event handler for the search bar
+-- Event handler for the search bar
+SearchTool:GetPropertyChangedSignal("Text"):Connect(function()
+	local searchTerm = string.lower(SearchTool.Text)
+
+	for _, item in pairs(Scrolling:GetChildren()) do
+		if item:IsA("TextLabel") then
+			local itemText = string.lower(item.Text)
+			if string.find(itemText, searchTerm) then
+				item.Visible = true
+			else
+				item.Visible = false
+			end
+		end
+	end
+end)
+
+-- You can use this script in a LocalScript or a Script in Roblox Studio, depending on your use case.
+local function TICKCA_MF() -- MainFrame.Drag script 
+	local script = Instance.new('Folder', Main)
+
+	local UIS = game:GetService("UserInputService")
+	function drag (Frame)
+		dragToggle = nil
+		dragSpeed = 0.23
+		dragInput = nil
+		dragStart = nil
+		dragPos = nil
+		function updateInput(input)
+			Delta = input.Position - dragStart
+			Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+			game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
+		end
+		Frame.InputBegan:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+				dragToggle = true
+				dragStart = input.Position
+				startPos = Frame.Position
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragToggle = false
+					end
+				end)
+			end
+		end)
+		Frame.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+				dragInput = input
+			end
+		end)
+		game:GetService("UserInputService").InputChanged:Connect(function(input)
+			if input == dragInput and dragToggle then
+				updateInput(input)
+			end
+		end)
+	end
+	drag(script.Parent)
+
+end
+
+
+
+coroutine.wrap(TICKCA_MF)()
