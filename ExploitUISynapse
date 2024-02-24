@@ -44,7 +44,7 @@ local TextLabel_4 = Instance.new("TextLabel")
 --Properties:
 
 maingui.Name = "maingui"
-maingui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+maingui.Parent = game.CoreGui
 maingui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 MainFrame.Name = "MainFrame"
