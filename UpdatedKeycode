@@ -1826,7 +1826,7 @@ local function NYMIRF_fake_script() -- ScriptHub.ScriptHubScript
 		},
 		{
 			Name = "Infinite Yield",
-			Script = GetScript("InfiniteYield"),
+			Script = loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source')),
 			Author = "Edge",
 			Description = "The best command line script for roblox.",
 			Image = GetImage("InfiniteYield", "https://i.imgur.com/zsvlYCe.png")
