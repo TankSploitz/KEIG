@@ -2,7 +2,8 @@
 -- Version: 3.2
 
 -- Instances:
-
+local notif = loadstring(game:HttpGet("https://raw.githubusercontent.com/insanedude59/notiflib/main/main"))()
+notif:Notification("Script UI","Has Loaded","GothamSemibold","Gotham",5)
 local maingui = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
 local MainFrame.Visible = false
