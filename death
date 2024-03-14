@@ -10,6 +10,8 @@ MainFrame.Visible = false
 local TextLabel = Instance.new("TextLabel")
 local Close = Instance.new("TextButton")
 local Off = Instance.new("TextButton")
+
+local CMDX = Instance.new("ImageButton")
 local EditorFrame = Instance.new("ScrollingFrame")
 local Source = Instance.new("TextBox")
 local Comments_ = Instance.new("TextLabel")
