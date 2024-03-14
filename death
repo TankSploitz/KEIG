@@ -3,7 +3,7 @@
 
 -- Instances:
 local notif = loadstring(game:HttpGet("https://raw.githubusercontent.com/insanedude59/notiflib/main/main"))()
-notif:Notification("Script UI","Has Loaded","GothamSemibold","Gotham",5)
+notif:Notification("Atank's Script Hub","Has Loaded","GothamSemibold","Gotham",20)
 local maingui = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
 MainFrame.Visible = false
