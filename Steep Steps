@@ -1,0 +1,14 @@
+for _, model in ipairs(workspace.NPCs:GetChildren()) do
+	if model:IsA("Model") and model.Name == "ORE" then
+		print("Model name:", model.Name)
+		local a = Instance.new("BoxHandleAdornment")
+		a.Name = model.Name:lower().."_PESP"
+		a.Parent = model.Interact
+		a.Adornee = model.Interact
+		a.AlwaysOnTop = true
+		a.ZIndex = 0
+		a.Size = model.Interact.Size
+		a.Transparency = .5
+		a.Color = BrickColor.new("Lime green")
+	end
+end
