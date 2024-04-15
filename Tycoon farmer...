@@ -1,0 +1,32 @@
+
+Part0 = Instance.new("Part")
+Part1 = Instance.new("Part")
+Part0.Name = "TeleportTo"
+Part0.Parent = workspace
+Part0.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+Part0.Color = Color3.new(0.666667, 0, 0)
+Part0.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+Part0.Size = Vector3.new(2, 1, 1)
+Part0.Anchored = true
+Part0.CanCollide = false
+Part0.BottomSurface = Enum.SurfaceType.Smooth
+Part0.TopSurface = Enum.SurfaceType.Smooth
+Part1.Name = "TeleporterLoop"
+Part1.Parent = workspace
+Part0.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+Part0.Color = Color3.new(0.333333, 1, 0)
+Part1.Size = Vector3.new(11, 8, 1)
+Part1.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+Part1.Anchored = true
+Part1.BottomSurface = Enum.SurfaceType.Smooth
+Part1.TopSurface = Enum.SurfaceType.Smooth
+
+local function onPartTouched(hitPart)
+	if hitPart:IsA("Part") then
+		hitPart.CFrame = Part0.CFrame * CFrame.new(0, 5, 0)
+	end
+end
+
+Part1.Touched:Connect(onPartTouched)
+
+
